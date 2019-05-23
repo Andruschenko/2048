@@ -62,7 +62,14 @@ HTMLActuator.prototype.addTile = function (tile) {
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-  inner.textContent = tile.value;
+  // Disable the standard tile content
+  // inner.textContent = tile.value;
+
+  // Add image from local 'images' folder. Images should be named by their score
+  var image = document.createElement("img");
+  image.src = `images/${tile.value}.jpg`;
+  image.style = "width: 100%; height: 100%; position: absolute; left: 0;"
+  inner.appendChild(image);
 
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
