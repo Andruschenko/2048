@@ -71,6 +71,12 @@ HTMLActuator.prototype.addTile = function (tile) {
   image.style = "width: 100%; height: 100%; position: absolute; left: 0;"
   inner.appendChild(image);
 
+  // Add new text value of score in lower bottom corner of image
+  var text = document.createElement("div");
+  text.textContent = tile.value;
+  text.style="font-size: 35px; color: white; line-height: 30px; position: absolute; right: 0; bottom: 0; padding: 5px";
+  inner.appendChild(text);
+
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
     window.requestAnimationFrame(function () {
